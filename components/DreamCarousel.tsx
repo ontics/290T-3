@@ -16,35 +16,35 @@ interface Dream {
 }
 
 // Updated dream data with Unsplash image URLs
-const dreams = {
+const dreams: Record<DreamCategory, Dream[]> = {
   trending: [
     {
       id: 'peaceful-flight',
       title: "Peaceful Flight",
       description: "Float through serene landscapes that dissolve tension and anxiety",
       image: "https://images.unsplash.com/photo-1506268452458-bfb3757ed859?q=80&w=1000&auto=format&fit=crop",
-      categories: ['trending']
+      categories: ['trending'] as DreamCategory[]
     },
     {
       id: 'fluent-greek',
       title: "Fluent Greek",
       description: "Master Greek in your sleep with our language immersion dreams",
       image: "https://images.unsplash.com/photo-1631356394592-6da1b5f8d3dd",
-      categories: ['trending', 'learn']
+      categories: ['trending', 'learn'] as DreamCategory[]
     },
     {
       id: 'new-perspective',
       title: "New Perspective",
       description: "See the world through someone else's eyes and expand your empathy",
       image: "https://images.unsplash.com/photo-1523324761162-d261f3f30ab1",
-      categories: ['trending']
+      categories: ['trending'] as DreamCategory[]
     },
     {
       id: 'deep-recovery',
       title: "Deep Recovery",
       description: "Experience profound states of calm and restoration",
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop",
-      categories: ['recover']
+      categories: ['recover'] as DreamCategory[]
     }
   ],
   recover: [
@@ -53,35 +53,35 @@ const dreams = {
       title: "Peaceful Flight",
       description: "Float through serene landscapes that dissolve tension and anxiety",
       image: "https://images.unsplash.com/photo-1506268452458-bfb3757ed859?q=80&w=1000&auto=format&fit=crop",
-      categories: ['recover']
+      categories: ['recover'] as DreamCategory[]
     },
     {
       id: 'find-forgiveness',
       title: "Find Forgiveness",
       description: "Safely process difficult memories in a controlled dreamscape",
       image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=1000&auto=format&fit=crop",
-      categories: ['recover']
+      categories: ['recover'] as DreamCategory[]
     },
     {
       id: 'deep-recovery',
       title: "Deep Recovery",
       description: "Experience profound states of calm and restoration",
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop",
-      categories: ['recover']
+      categories: ['recover'] as DreamCategory[]
     },
     {
       id: 'overcome-fears',
       title: "Overcome Your Fears",
       description: "Transform anxious thoughts into peaceful experiences",
       image: "https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?q=80&w=1000&auto=format&fit=crop",
-      categories: ['recover']
+      categories: ['recover'] as DreamCategory[]
     },
     {
       id: 'introspection',
       title: "Introspection",
       description: "Repair emotional wounds through guided dream therapy",
       image: "https://images.unsplash.com/photo-1499988921418-b7df40ff03f9?q=80&w=1000&auto=format&fit=crop",
-      categories: ['recover']
+      categories: ['recover'] as DreamCategory[]
     }
   ],
   learn: [
@@ -90,28 +90,28 @@ const dreams = {
       title: 'Fluent Greek',
       description: 'Master Greek in your sleep with our language immersion dreams',
       image: 'https://images.unsplash.com/photo-1631356394592-6da1b5f8d3dd',
-      categories: ['learn']
+      categories: ['learn'] as DreamCategory[]
     },
     {
       id: 'new-perspective',
       title: "New Perspective",
       description: "See the world through someone else's eyes and expand your empathy",
       image: "https://images.unsplash.com/photo-1523324761162-d261f3f30ab1",
-      categories: ['learn']
+      categories: ['learn'] as DreamCategory[]
     },
     {
       id: 'memorise-flashcards',
       title: "Memorise Flashcards",
       description: "Strengthen memory consolidation during deep sleep phases",
       image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000&auto=format&fit=crop",
-      categories: ['learn']
+      categories: ['learn'] as DreamCategory[]
     },
     {
       id: 'kung-fu',
       title: "Kung Fu",
       description: "Master martial arts and become a legendary kung fu fighter",
       image: "https://images.unsplash.com/photo-1555597673-b21d5c935865",
-      categories: ['learn']
+      categories: ['learn'] as DreamCategory[]
     }
   ],
   play: [
@@ -120,35 +120,35 @@ const dreams = {
       title: 'Wild West',
       description: 'Experience the frontier as a cowboy in the American Wild West',
       image: 'https://images.unsplash.com/photo-1624125278758-c0572f6ebc55',
-      categories: ['play']
+      categories: ['play'] as DreamCategory[]
     },
     {
       id: 'wizarding-world',
       title: 'Wizarding World',
       description: 'Cast spells and brew potions in a magical wizarding academy',
       image: 'https://images.unsplash.com/photo-1656878564120-ab988c47f0b5',
-      categories: ['play']
+      categories: ['play'] as DreamCategory[]
     },
     {
       id: 'kung-fu',
       title: 'Kung Fu',
       description: 'Master martial arts and become a legendary kung fu fighter',
       image: 'https://images.unsplash.com/photo-1555597673-b21d5c935865',
-      categories: ['play']
+      categories: ['play'] as DreamCategory[]
     },
     {
       id: 'space-rollercoaster',
       title: "Space Rollercoaster",
       description: "Experience the freedom of flight in vivid detail",
       image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1000&auto=format&fit=crop",
-      categories: ['play']
+      categories: ['play'] as DreamCategory[]
     },
     {
       id: 'superhero-powers',
       title: "Superhero Powers",
       description: "Fight alongside your favourite superheros",
       image: "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?q=80&w=1000&auto=format&fit=crop",
-      categories: ['play']
+      categories: ['play'] as DreamCategory[]
     }
   ]
 }
