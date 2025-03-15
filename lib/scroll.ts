@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-export function setupScroll(containerRef: React.RefObject<HTMLElement>) {
+export function setupScroll(containerRef: React.RefObject<HTMLDivElement>) {
   if (typeof window === 'undefined') return () => {}
   
   // Register GSAP plugins
@@ -29,8 +29,20 @@ export function setupScroll(containerRef: React.RefObject<HTMLElement>) {
     })
   })
   
+  // Make sure the hero illustration stays fixed
+  const heroSection = document.getElementById('hero')
+  const heroIllustration = heroSection?.querySelector('.hero-illustration-container')
+  
+  if (heroIllustration) {
+    heroIllustration.classList.add('sticky-top')
+  }
+  
   // Clean up function
   return () => {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    
+    if (heroIllustration) {
+      heroIllustration.classList.remove('sticky-top')
+    }
   }
 } 

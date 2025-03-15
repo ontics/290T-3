@@ -1,51 +1,70 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 
 export default function Navigation() {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   
   return (
-    <motion.nav 
-      className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-3xl font-bold text-indigo-400">
-          SOMNIUM
-        </Link>
-        
-        <div className="hidden md:flex space-x-8">
-          <Link href="#technology" className="text-gray-300 hover:text-white transition">Technology</Link>
-          <Link href="#dreams" className="text-gray-300 hover:text-white transition">Dreams</Link>
-          <Link href="#science" className="text-gray-300 hover:text-white transition">Science</Link>
-          <Link href="#about" className="text-gray-300 hover:text-white transition">About</Link>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          <button 
-            className="text-yellow-300 p-2 rounded-full"
-            onClick={() => setIsDarkMode(!isDarkMode)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-          </button>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-black/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
+    }`}>
+      <div className="container mx-auto px-6">
+        <div className="flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-2xl font-bold">somnium</span>
+            <Image 
+              src="/images/somnium-logo-white.png" 
+              alt="Somnium Logo" 
+              width={28} 
+              height={28} 
+              className="h-7 w-auto"
+            />
+          </Link>
           
-          <motion.button
-            className="bg-indigo-500 text-white px-6 py-2 rounded-full text-sm font-medium"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('purchase')?.scrollIntoView({ behavior: 'smooth' })}
+          <nav className="hidden md:flex items-center gap-8">
+            <Link 
+              href="/#nightcap" 
+              className={`text-gray-300 hover:text-white transition`}
+            >
+              Nightcap
+            </Link>
+            <Link 
+              href="/#dreams" 
+              className={`text-gray-300 hover:text-white transition`}
+            >
+              Dreams
+            </Link>
+            <Link 
+              href="/our-story" 
+              className={`${pathname === '/our-story' ? 'text-white' : 'text-gray-300 hover:text-white'} transition`}
+            >
+              Our Story
+            </Link>
+          </nav>
+          
+          <Link 
+            href="/#purchase" 
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-full transition-colors"
           >
-            Subscribe
-          </motion.button>
+            Buy Now
+          </Link>
         </div>
       </div>
-    </motion.nav>
+    </header>
   )
 } 

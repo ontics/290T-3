@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 
 export default function JourneyButton() {
   return (
-    <motion.button 
-      className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full text-lg font-medium flex items-center gap-2 transition-all"
+    <motion.button
+      className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full text-lg font-medium flex items-center gap-2 transition-all"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => document.getElementById('purchase')?.scrollIntoView({ behavior: 'smooth' })}

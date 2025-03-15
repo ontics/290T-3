@@ -1,18 +1,31 @@
-// Generate placeholder image URLs using placeholder.com service
+import { StaticImageData } from 'next/image'
+
+// Create a type-safe image object
+const createImageObject = (src: string, width: number = 800, height: number = 600): StaticImageData => ({
+  src,
+  height,
+  width,
+})
+
+// Use Unsplash images for placeholders
 export const placeholderImages = {
   // Dream marketplace images
   dreams: {
-    stressRelief: 'https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?q=80&w=600&h=400&auto=format',
-    traumaProcessing: 'https://images.unsplash.com/photo-1502230831726-fe5549140034?q=80&w=600&h=400&auto=format',
-    deepRelaxation: 'https://images.unsplash.com/photo-1506477331477-33d5d8b3dc85?q=80&w=600&h=400&auto=format',
-    anxietyManagement: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&h=400&auto=format',
+    stressRelief: createImageObject('https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?q=80&w=800&h=600&auto=format'),
+    traumaProcessing: createImageObject('https://images.unsplash.com/photo-1502230831726-fe5549140034?q=80&w=800&h=600&auto=format'),
+    deepRelaxation: createImageObject('https://images.unsplash.com/photo-1506477331477-33d5d8b3dc85?q=80&w=800&h=600&auto=format'),
+    anxietyManagement: createImageObject('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&h=600&auto=format'),
+    languageLearning: createImageObject('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&h=600&auto=format'),
+    memoryEnhancement: createImageObject('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&h=600&auto=format'),
+    creativeProblemSolving: createImageObject('https://images.unsplash.com/photo-1456428746267-a1756408f782?q=80&w=800&h=600&auto=format'),
+    adventureExploration: createImageObject('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&h=600&auto=format'),
   },
   
   // Layered section images
   product: {
-    main: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&h=800&auto=format',
-    overlay1: 'https://images.unsplash.com/photo-1607979036079-64db9799f6e7?q=80&w=400&h=400&auto=format',
-    overlay2: 'https://images.unsplash.com/photo-1580428180098-24b353d7e9d9?q=80&w=400&h=400&auto=format',
-    overlay3: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400&h=400&auto=format',
+    main: '/images/product/main.jpg',
+    overlay1: '/images/product/overlay1.jpg',
+    overlay2: '/images/product/overlay2.jpg',
+    overlay3: '/images/product/overlay3.jpg',
   }
 } 
